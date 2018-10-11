@@ -32,7 +32,7 @@ header("X-XSS-Protection: 0;");
 					session_start();
    				//Read your session (if it is set)
    				if (isset($_SESSION['userlogin']))
-					echo "Welcome " . $_SESSION['userlogin'];
+					echo "Welcome " . html_entities($_SESSION['userlogin']);
 					?>
 					<br>
 				Use this page to store a one time message for someone!
