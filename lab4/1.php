@@ -32,7 +32,7 @@ header("X-XSS-Protection: 0;");
 					session_start();
    				//Read your session (if it is set)
    				if (isset($_SESSION['userlogin']))
-					echo "Welcome " . html_entities($_SESSION['userlogin']);
+					echo "Welcome " . htmlentities($_SESSION['userlogin']);
 					?>
 					<br>
 				Use this page to store a one time message for someone!
@@ -44,27 +44,27 @@ header("X-XSS-Protection: 0;");
 if (isset($_GET["alert"])) 
 {
 	
-  $param = strtolower($_GET["alert"]);
+  $param = strtolower(htmlentities($_GET["alert"]));
 
-	$javascriptAlert = array("script", "javascript", "onload", "oninput", "onstart", "onkeydown", "onkeypress", "onkeyup","onpaste","onreadystatechange","onreadystatechange","onsubmit","onmousedown","onmousemove","onmouseover","onfocus", "onselect", "onchange");
-	$htmlAlert = array("href", "figure", "article", "input", "marquee", "iframe", "button");
+	// $javascriptAlert = array("script", "javascript", "onload", "oninput", "onstart", "onkeydown", "onkeypress", "onkeyup","onpaste","onreadystatechange","onreadystatechange","onsubmit","onmousedown","onmousemove","onmouseover","onfocus", "onselect", "onchange");
+	// $htmlAlert = array("href", "figure", "article", "input", "marquee", "iframe", "button");
 
-	foreach ($javascriptAlert as &$value) 
-	{
-		if(strpos($param, $value) !== true)
-		{
-			$param = str_replace($value, "noJS", $param);
-		}
-	}
+	// foreach ($javascriptAlert as &$value) 
+	// {
+	// 	if(strpos($param, $value) !== true)
+	// 	{
+	// 		$param = str_replace($value, "noJS", $param);
+	// 	}
+	// }
 
-	foreach ($htmlAlert as &$value) 
-	{
-		if(strpos($param, $value) !== true)
-		{
-			$param = str_replace($value, "noHTML", $param);
+	// foreach ($htmlAlert as &$value) 
+	// {
+	// 	if(strpos($param, $value) !== true)
+	// 	{
+	// 		$param = str_replace($value, "noHTML", $param);
 			
-		}
-	}
+	// 	}
+	// }
 		
 	echo $param;
 }
