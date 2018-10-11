@@ -83,7 +83,7 @@ $myFile = $_SESSION['userlogin'] . ".json";
 	 }
 	 
 	}
-}
+
 
 $myFile = $_SESSION['userlogin'] . ".json";
 if (!file_exists($myFile)) {
