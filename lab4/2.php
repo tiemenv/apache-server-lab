@@ -32,7 +32,7 @@ Stored XSS
 					session_start();
    				//Read your session (if it is set)
    				if (isset($_SESSION['userlogin']))
-					echo "Welcome " . htmlentities($_SESSION['userlogin']);
+					echo "Welcome " . $_SESSION['userlogin'];
 					?>
 					<br>
 
@@ -45,15 +45,15 @@ if (isset($_POST["alert"]))
 {
 		
 //		echo $param;	
-$myFile = htmlentities($_SESSION['userlogin']) . ".json";
+$myFile = $_SESSION['userlogin'] . ".json";
 
   try
   {
 
 	   //Get form data
 	   $formdata = array(
-	      'userName'=>  htmlentities($_SESSION['userlogin']),
-	      'comment'=> htmlentities($param),
+	      'userName'=> $_SESSION['userlogin'],
+	      'comment'=> $param,
 		 );
 		 
 	
@@ -105,12 +105,12 @@ try
 				foreach ($value as &$item) {
 					if($count == 0)
 					{
-						echo "Username: " . htmlentities($item);
+						echo "Username: " . $item;
 						$count++;
 					}
 					else
 					{
-						echo " - Message: " .  htmlentities($item) . "<br>	";
+						echo " - Message: " .  $item . "<br>	";
 					}
 				}
 		}
