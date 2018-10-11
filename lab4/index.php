@@ -33,7 +33,7 @@ header("X-XSS-Protection: 0;");
       <?php
       if (isset($_GET["username"])) 
       {
-        echo "Welcome: " . html_entities($_GET["username"]) . ".";
+        echo "Welcome: " . htmlentities($_GET["username"]) . ".";
 
         session_start();
         //Store the name in the session
