@@ -41,7 +41,7 @@ Stored XSS
 			  <input type="submit" value="Submit">
 			</form><br>
 <?php
-var_dump(isset($_POST["alert"]));
+print_r(isset($_POST["alert"]), true);
 if (isset($_POST["alert"])) 
 {
 		
