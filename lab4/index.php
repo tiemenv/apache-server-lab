@@ -37,7 +37,7 @@ header("X-XSS-Protection: 0;");
 
         session_start();
         //Store the name in the session
-        $_SESSION['userlogin'] = $_GET["username"];
+        $_SESSION['userlogin'] = htmlentities($_GET["username"]);
       }
     ?>
     <br>

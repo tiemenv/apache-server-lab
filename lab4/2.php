@@ -87,13 +87,17 @@ $myFile = $_SESSION['userlogin'] . ".json";
 echo "<pre>". print_r($_SESSION['userlogin']) . "</pre>";
 $myFile = $_SESSION['userlogin'] . ".json";
 if (!file_exists($myFile)) {
+	echo "file didnt exist yet!";
 	touch($myFile);
 }
 $arr_data = array(); // create empty array
 try
   {
 	   //Get data from existing json file
-	   $jsondata = file_get_contents($myFile);
+		 $jsondata = file_get_contents($myFile);
+		 echo "jsondata:";
+		 echo "<pre>". print_r($jsondata, true)."</pre>";
+
 
 	   // converts json data into array
 	   $arr_data = json_decode($jsondata, true);
