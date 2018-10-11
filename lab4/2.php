@@ -84,7 +84,7 @@ $myFile = $_SESSION['userlogin'] . ".json";
 	 
 	}
 
-
+echo "<pre>". print_r($_SESSION['userlogin']) . "</pre>";
 $myFile = $_SESSION['userlogin'] . ".json";
 if (!file_exists($myFile)) {
 	touch($myFile);
