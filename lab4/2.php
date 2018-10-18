@@ -41,7 +41,6 @@ Stored XSS
 			  <input type="submit" value="Submit">
 			</form><br>
 <?php
-print_r(isset($_POST["alert"]), true);
 if (isset($_POST["alert"])) 
 {
 		
